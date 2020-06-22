@@ -57,7 +57,7 @@ public class Util {
     SOAPElement soapBodyElem2 = soapBodyElem.addChildElement("Ad");
     soapBodyElem2.addTextNode(person.getName().toUpperCase());
     SOAPElement soapBodyElem3 = soapBodyElem.addChildElement("Soyad");
-    soapBodyElem3.addTextNode(person.getSurName().toUpperCase());
+    soapBodyElem3.addTextNode(person.getSurname().toUpperCase());
     SOAPElement soapBodyElem4 = soapBodyElem.addChildElement("DogumYili");
     soapBodyElem4.addTextNode(person.getBirthday());
 

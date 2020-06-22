@@ -6,16 +6,17 @@ import com.volkangurbuz.verifysystem.utilities.results.ErrorResult;
 import com.volkangurbuz.verifysystem.utilities.results.Result;
 import com.volkangurbuz.verifysystem.utilities.results.SuccessResult;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 @Slf4j
+@Service
 public class VerifyServiceImpl implements VerifyService {
-
-  @Autowired Util util;
 
   @Override
   public Result verifyPerson(Person person) {
     try {
+
+      Util util = new Util();
       boolean isValid = util.isValid(util.sendMessage(person));
 
       if (isValid) {
