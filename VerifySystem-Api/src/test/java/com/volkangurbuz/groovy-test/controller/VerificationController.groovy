@@ -43,13 +43,11 @@ class VerificationController extends Specification {
         def person = new Person();
         person.setName("volkan")
         person.setSurname("gurbuz")
-        person.setTcNo("18454225214")
-        person.setBirthday("1989")
+        person.setTcNo("xxxx")
+        person.setBirthday("xxx")
         def mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
 
-
         when(service.verifyPerson(person))
-
 
         mockMvc
                 .perform(MockMvcRequestBuilders.get("/verify"))
