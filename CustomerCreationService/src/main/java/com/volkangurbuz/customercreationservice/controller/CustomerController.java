@@ -1,6 +1,5 @@
 package com.volkangurbuz.customercreationservice.controller;
 
-
 import com.volkangurbuz.customercreationservice.domain.Customer;
 import com.volkangurbuz.customercreationservice.services.CustomerService;
 import com.volkangurbuz.customercreationservice.utilities.Messages;
@@ -14,27 +13,24 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api")
 public class CustomerController {
 
-    private final CustomerService customerService;
+  private final CustomerService customerService;
 
-    public CustomerController(CustomerService customerService) {
-        this.customerService = customerService;
-    }
+  public CustomerController(CustomerService customerService) {
+    this.customerService = customerService;
+  }
 
-    @PostMapping("/customers/register")
-    @ResponseStatus(HttpStatus.CREATED)
-    public String greetingSubmit(@ModelAttribute Customer customer, Model model) {
-        Result result = customerService.addCustomer(customer);
-        String resultMessage = result.getMessage();
-        model.addAttribute("resultmessage", resultMessage);
-        return "bank/welcome";
-    }
+  @PostMapping("/customers/register")
+  @ResponseStatus(HttpStatus.CREATED)
+  public String greetingSubmit(@ModelAttribute Customer customer, Model model) {
+    Result result = customerService.addCustomer(customer);
+    String resultMessage = result.getMessage();
+    model.addAttribute("resultmessage", resultMessage);
+    return "welcome";
+  }
 
-    
-    @GetMapping("/customers/register")
-    public String Add(@ModelAttribute Customer customer, Model model) {
-        model.addAttribute("customer", customer);
-        return "bank/register";
-    }
-
-
+  @GetMapping("/customers/register")
+  public String Add(@ModelAttribute Customer customer, Model model) {
+    model.addAttribute("customer", customer);
+    return "register";
+  }
 }
