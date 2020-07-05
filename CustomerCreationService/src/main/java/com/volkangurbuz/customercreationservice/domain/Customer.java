@@ -24,6 +24,7 @@ public class Customer {
   private String surname;
   private String email;
   private String password;
+  private String passwordConfirm;
   private String address;
 
   @Nullable private List<CreditCard> creditCards;
