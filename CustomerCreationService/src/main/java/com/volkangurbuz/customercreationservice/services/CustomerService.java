@@ -5,6 +5,5 @@ import com.volkangurbuz.customercreationservice.utilities.results.Result;
 
 public interface CustomerService {
 
-    Result addCustomer(Customer customer);
-
+  Result addCustomer(Customer customer);
 }
