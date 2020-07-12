@@ -10,7 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
 @RequestMapping("/api")
 public class CustomerController {
 
@@ -29,6 +29,7 @@ public class CustomerController {
     return "welcome";
   }
 
+  @ResponseStatus(HttpStatus.CREATED)
   @GetMapping("/customers/register")
   public String Add(@ModelAttribute Customer customer, Model model) {
     model.addAttribute("customer", customer);
