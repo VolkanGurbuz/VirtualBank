@@ -53,7 +53,7 @@ class CustomerControllerTest extends Specification {
 
         then:
         mockMvc
-                .perform(MockMvcRequestBuilders.get("/api/customers/register"))
+                .perform(MockMvcRequestBuilders.get("/api/customers/register/"))
                 .andExpect(status().isCreated())
 
     }
