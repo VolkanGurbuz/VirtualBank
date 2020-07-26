@@ -11,30 +11,30 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+@Controller
 public class VerifyController {
 
-    private final VerifyService verifyService;
+  private final VerifyService verifyService;
 
-    public VerifyController(VerifyService verifyService) {
-        this.verifyService = verifyService;
-    }
+  public VerifyController(VerifyService verifyService) {
+    this.verifyService = verifyService;
+  }
 
-    @GetMapping("/verify")
-    public String verifyPerson(@ModelAttribute Person person, Model model) {
-        model.addAttribute("person", person);
-        return "verify";
-    }
+  @GetMapping("/verify")
+  public String verifyPerson(@ModelAttribute Person person, Model model) {
+    model.addAttribute("person", person);
+    return "verify";
+  }
 
-    @PostMapping("/verify")
-    @ResponseStatus(HttpStatus.OK)
-    public String greetingSubmit(@ModelAttribute Person person, Model model) throws Exception {
-        // gets result from verifyService
-        Result result = verifyService.verifyPerson(person);
-        String resultMessage = result.getMessage();
+  @PostMapping("/verify")
+  @ResponseStatus(HttpStatus.OK)
+  public String greetingSubmit(@ModelAttribute Person person, Model model) throws Exception {
+    // gets result from verifyService
+    Result result = verifyService.verifyPerson(person);
+    String resultMessage = result.getMessage();
 
-        model.addAttribute("resultmessage", resultMessage);
+    model.addAttribute("resultmessage", resultMessage);
 
-        return "result";
-    }
+    return "result";
+  }
 }
