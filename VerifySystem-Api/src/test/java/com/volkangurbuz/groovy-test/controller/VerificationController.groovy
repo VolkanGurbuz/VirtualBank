@@ -1,4 +1,3 @@
-import com.sun.org.apache.regexp.internal.RE
 import com.volkangurbuz.verifysystem.VerifysystemApplication
 import com.volkangurbuz.verifysystem.controller.VerifyController
 import com.volkangurbuz.verifysystem.domain.Person
@@ -16,13 +15,10 @@ import org.springframework.test.web.servlet.MockMvcBuilder
 import org.springframework.test.web.servlet.setup.MockMvcBuilders
 import spock.lang.Specification
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view
 
 @SpringBootTest(classes = VerifysystemApplication.class)
 class VerificationController extends Specification {
-
 
     @Mock
     VerifyService service;
@@ -30,7 +26,6 @@ class VerificationController extends Specification {
     VerifyController controller;
 
     def setup() {
-
         MockitoAnnotations.initMocks(this);
         controller = new VerifyController(service);
 
@@ -46,13 +41,10 @@ class VerificationController extends Specification {
         person.setTcNo("xxxx")
         person.setBirthday("xxx")
         def mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
-
         when(service.verifyPerson(person))
-
         mockMvc
                 .perform(MockMvcRequestBuilders.get("/verify"))
                 .andExpect(status().isOk())
-
 
     }
 
