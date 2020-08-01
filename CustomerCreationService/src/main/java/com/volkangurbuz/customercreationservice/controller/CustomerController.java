@@ -35,4 +35,11 @@ public class CustomerController {
     model.addAttribute("customer", customer);
     return "register";
   }
+
+  @ResponseStatus(HttpStatus.OK)
+  @GetMapping("/customers")
+  public String customers(Model model) {
+    model.addAttribute("customers", customerService.getCustomers());
+    return "customers";
+  }
 }
