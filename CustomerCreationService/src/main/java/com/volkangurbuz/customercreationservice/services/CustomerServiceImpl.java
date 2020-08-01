@@ -9,6 +9,8 @@ import com.volkangurbuz.customercreationservice.utilities.results.SuccessResult;
 import groovy.util.logging.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Slf4j
 @Service
 public class CustomerServiceImpl implements CustomerService {
@@ -25,5 +27,10 @@ public class CustomerServiceImpl implements CustomerService {
     customer.setPassword(PasswordUtils.generateSecurePassword(customer.getPassword(), salt));
     customerRepository.save(customer);
     return new SuccessResult(true, Messages.CustomerAdded);
+  }
+
+  @Override
+  public List<Customer> getCustomers() {
+    return customerRepository.findAll();
   }
 }
