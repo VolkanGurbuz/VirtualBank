@@ -42,4 +42,18 @@ public class CustomerController {
     model.addAttribute("customers", customerService.getCustomers());
     return "customers";
   }
+
+  @ResponseStatus(HttpStatus.OK)
+  @GetMapping("/searchcustomerbyname")
+  public String findCustomersByName(@ModelAttribute String name, Model model) {
+    model.addAttribute("name", name);
+    return "search";
+  }
+
+  @PostMapping("/searchcustomerbyname")
+  @ResponseStatus(HttpStatus.OK)
+  public String findCustomersGreeting(@ModelAttribute String name, Model model) {
+    model.addAttribute("customers", customerService.findByName(name));
+    return "search";
+  }
 }
