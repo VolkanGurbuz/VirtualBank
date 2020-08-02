@@ -9,5 +9,7 @@ public interface CustomerService {
 
   Result addCustomer(Customer customer);
 
+  List<Customer> findByName(String name);
+
   List<Customer> getCustomers();
 }

@@ -17,10 +17,9 @@ public class CustomerBoot implements ApplicationListener<ContextRefreshedEvent> 
 
   @Override
   public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
-    /*
-    Customer customer = new Customer();
-    customer.setName("volkan");
 
-    customerRepository.save(customer);*/
+    String name = "volkan";
+
+    System.out.println("size:" + customerRepository.findCustomerByName(name).size());
   }
 }
