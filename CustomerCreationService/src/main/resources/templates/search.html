@@ -52,7 +52,7 @@
             <div class="panel panel-primary">
 
                 <div class="panel-heading">
-                    <h1 class="panel-title">My Recipes!</h1>
+                    <h1 class="panel-title">Customers!</h1>
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive" th:if="${not #lists.isEmpty(customers)}">
@@ -79,9 +79,11 @@
                             <tr th:each="customer : ${customers}">
                                 <td th:text="${customer.name}">firstname</td>
                                 <td th:text="${customer.surname}">lastname</td>
-                                <td><a href="#" th:href="@{'/customer/' + ${customer.id} + '/show'}">View</a></td>
-                                <td><a href="#" th:href="@{'/customer/' + ${customer.id} + '/update'}">Update</a></td>
-                                <td><a href="#" th:href="@{'/customer/' + ${customer.id} + '/delete'}">Delete</a></td>
+                                <td><a href="#" th:href="@{'/api/customer/' + ${customer.id} + '/show'}">View</a></td>
+                                <td><a href="#" th:href="@{'/api/customer/' + ${customer.id} + '/update'}">Update</a>
+                                </td>
+                                <td><a href="#" th:href="@{'/api/customer/' + ${customer.id} + '/delete'}">Delete</a>
+                                </td>
                             </tr>
                         </table>
                     </div>

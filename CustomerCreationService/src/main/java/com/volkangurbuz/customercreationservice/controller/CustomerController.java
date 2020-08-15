@@ -2,10 +2,9 @@ package com.volkangurbuz.customercreationservice.controller;
 
 import com.volkangurbuz.customercreationservice.domain.Customer;
 import com.volkangurbuz.customercreationservice.services.CustomerService;
-import com.volkangurbuz.customercreationservice.utilities.Messages;
 import com.volkangurbuz.customercreationservice.utilities.results.Result;
+import org.bson.types.ObjectId;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -48,5 +47,11 @@ public class CustomerController {
       @RequestParam(value = "customers", required = false) String name, Model model) {
     model.addAttribute("customers", customerService.findByName(name));
     return "search";
+  }
+
+  @GetMapping("/customer/{id}/show")
+  public String showById(@PathVariable ObjectId id, Model model) {
+    model.addAttribute("customer", customerService.getCustomerById(id));
+    return "customer/showcustomer";
   }
 }
