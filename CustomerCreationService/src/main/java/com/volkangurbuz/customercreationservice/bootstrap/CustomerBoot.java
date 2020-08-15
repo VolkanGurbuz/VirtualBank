@@ -20,6 +20,7 @@ public class CustomerBoot implements ApplicationListener<ContextRefreshedEvent> 
 
     String name = "volkan";
 
-    System.out.println("size:" + customerRepository.findCustomerByName(name).size());
+    // System.out.println("size:" +
+    // customerRepository.findCustomerById(5f1c8f8dffbd9c4d2a5c1cf2).size());
   }
 }
