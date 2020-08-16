@@ -15,4 +15,6 @@ public interface CustomerService {
   List<Customer> getCustomers();
 
   Customer getCustomerById(ObjectId id);
+
+  void deleteById(ObjectId id);
 }
