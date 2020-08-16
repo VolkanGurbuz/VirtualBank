@@ -19,6 +19,8 @@ public class CustomerController {
     this.customerService = customerService;
   }
 
+  private static final String CUSTOMERFORM_URL = "redirect:/api/searchcustomerbyname";
+
   @PostMapping("/customers/register")
   @ResponseStatus(HttpStatus.CREATED)
   public String greetingSubmit(@ModelAttribute Customer customer, Model model) {
@@ -58,6 +60,18 @@ public class CustomerController {
   @GetMapping("/customer/{id}/delete")
   public String deleteById(@PathVariable ObjectId id) {
     customerService.deleteById(id);
-    return "redirect:/api/searchcustomerbyname";
+    return CUSTOMERFORM_URL;
+  }
+
+  @GetMapping("/customer/{id}/update")
+  public String showUpdateUpdate(@PathVariable ObjectId id, Model model) {
+    model.addAttribute("customer", customerService.getCustomerById(id));
+    return "customer/updatecustomer";
+  }
+
+  @PostMapping("/customers/update")
+  public String updateCustomer(@ModelAttribute Customer customer) {
+    customerService.updateCustomer(customer);
+    return CUSTOMERFORM_URL;
   }
 }
