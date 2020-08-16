@@ -54,4 +54,10 @@ public class CustomerController {
     model.addAttribute("customer", customerService.getCustomerById(id));
     return "customer/showcustomer";
   }
+
+  @GetMapping("/customer/{id}/delete")
+  public String deleteById(@PathVariable ObjectId id) {
+    customerService.deleteById(id);
+    return "redirect:/api/searchcustomerbyname";
+  }
 }

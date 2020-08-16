@@ -13,4 +13,6 @@ public interface CustomerRepository extends MongoRepository<Customer, String> {
   List<Customer> findCustomerByName(String name);
 
   Optional<Customer> findCustomerById(ObjectId objectId);
+
+  void deleteById(ObjectId id);
 }
