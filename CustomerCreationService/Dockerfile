@@ -17,6 +17,6 @@ ARG JAR_FILE=target/customercreationservice-0.0.1-SNAPSHOT.jar
 ADD ${JAR_FILE} customercreationservice-demo.jar
 
 # Run the jar file 
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/customercreationservice-demo.jar"]
+ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom","-jar","/customercreationservice-demo.jar"]
 
 
