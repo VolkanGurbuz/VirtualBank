@@ -46,6 +46,13 @@ public class CustomerServiceImpl implements CustomerService {
 
   @Override
   public List<Customer> findByName(String firstName) {
+
+    List<Customer> optionalCustomerList = customerRepository.findCustomerByName(firstName);
+    logger.info("listsie" + optionalCustomerList.size());
+    if (optionalCustomerList.size() == 0) {
+      throw new NotFoundException("First name did not find " + firstName);
+    }
+
     return customerRepository.findCustomerByName(firstName);
   }
 
