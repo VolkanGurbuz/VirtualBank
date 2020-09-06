@@ -83,6 +83,14 @@ public class CustomerController {
     return CUSTOMERFORM_URL;
   }
 
+  @ResponseStatus(HttpStatus.CREATED)
+  @GetMapping("/actions/withdraw")
+  public String withDraw(@ModelAttribute Customer customer, Model model, double withDraw) {
+    customerService.withDraw(customer, withDraw);
+    model.addAttribute("balance", customer.getBalance());
+    return "withdraw";
+  }
+
   @ResponseStatus(HttpStatus.NOT_FOUND)
   @ExceptionHandler(NotFoundException.class)
   public ModelAndView handleNotFound(Exception exception) {

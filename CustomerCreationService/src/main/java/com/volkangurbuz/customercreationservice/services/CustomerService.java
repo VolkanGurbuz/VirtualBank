@@ -19,4 +19,6 @@ public interface CustomerService {
   void deleteById(ObjectId id);
 
   void updateCustomer(Customer customer);
+
+  void withDraw(Customer customer, double withdraw);
 }
