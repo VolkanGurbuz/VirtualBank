@@ -32,10 +32,15 @@ public class CustomerController {
   @PostMapping("/customers/register")
   @ResponseStatus(HttpStatus.CREATED)
   public String greetingSubmit(@ModelAttribute Customer customer, Model model) {
-    Result result = customerService.addCustomer(customer);
-    String resultMessage = result.getMessage();
-    model.addAttribute("resultmessage", resultMessage);
-    return "welcome";
+    try {
+      Result result = customerService.addCustomer(customer);
+      String resultMessage = result.getMessage();
+      model.addAttribute("resultmessage", resultMessage);
+      return "welcome";
+    } catch (Exception e) {
+      logger.error(e.toString());
+    }
+    return "error";
   }
 
   @ResponseStatus(HttpStatus.CREATED)
@@ -81,6 +86,14 @@ public class CustomerController {
   public String updateCustomer(@ModelAttribute Customer customer) {
     customerService.updateCustomer(customer);
     return CUSTOMERFORM_URL;
+  }
+
+  @ResponseStatus(HttpStatus.CREATED)
+  @GetMapping("/actions/withdraw")
+  public String withDraw(@ModelAttribute Customer customer, Model model, double withDraw) {
+    customerService.withDraw(customer, withDraw);
+    model.addAttribute("balance", customer.getBalance());
+    return "withdraw";
   }
 
   @ResponseStatus(HttpStatus.NOT_FOUND)

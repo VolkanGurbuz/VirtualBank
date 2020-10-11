@@ -48,7 +48,6 @@ public class CustomerServiceImpl implements CustomerService {
   public List<Customer> findByName(String firstName) {
 
     List<Customer> optionalCustomerList = customerRepository.findCustomerByName(firstName);
-    logger.info("listsie" + optionalCustomerList.size());
     if (optionalCustomerList.size() == 0) {
       throw new NotFoundException("First name did not find " + firstName);
     }
@@ -77,12 +76,15 @@ public class CustomerServiceImpl implements CustomerService {
 
   @Override
   public void updateCustomer(Customer customer) {
-
     Query select = Query.query(Criteria.where("_id").is(customer.getId()));
-    logger.info("info " + customer.getId() + " sele " + select.isSorted());
     Update update = new Update();
     update.set("name", customer.getName());
 
     mongoTemplate.findAndModify(select, update, Customer.class);
+  }
+
+  @Override
+  public void withDraw(Customer customer, double withdraw) {
+    customer.withDraw(withdraw);
   }
 }
