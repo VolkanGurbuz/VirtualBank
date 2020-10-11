@@ -32,10 +32,15 @@ public class CustomerController {
   @PostMapping("/customers/register")
   @ResponseStatus(HttpStatus.CREATED)
   public String greetingSubmit(@ModelAttribute Customer customer, Model model) {
-    Result result = customerService.addCustomer(customer);
-    String resultMessage = result.getMessage();
-    model.addAttribute("resultmessage", resultMessage);
-    return "welcome";
+    try {
+      Result result = customerService.addCustomer(customer);
+      String resultMessage = result.getMessage();
+      model.addAttribute("resultmessage", resultMessage);
+      return "welcome";
+    } catch (Exception e) {
+      logger.error(e.toString());
+    }
+    return "error";
   }
 
   @ResponseStatus(HttpStatus.CREATED)
