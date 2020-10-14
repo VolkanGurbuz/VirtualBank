@@ -2,7 +2,12 @@
 
 # Spring Framework 5: 
 
-The application is a simple Spring Boot 2 / Spring Framework 5 web application. It is used to build  on VirtualBankSystem
+The application is a simple Spring Boot 2 / Spring Framework 5 web application. It is used to build  on VirtualBankSystem.
+
+There are two services are working. 
+
+mvn clean install
+docker-compose up -d
 
 
 ## Getting Your Development Environment Setup
