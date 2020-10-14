@@ -7,6 +7,7 @@ The application is a simple Spring Boot 2 / Spring Framework 5 web application. 
 There are two services are working. 
 
 mvn clean install
+
 docker-compose up -d
 
 
