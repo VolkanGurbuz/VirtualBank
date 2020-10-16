@@ -6,6 +6,8 @@ The application is a simple Spring Boot 2 / Spring Framework 5 web application. 
 
 There are two services are working. 
 
+
+```java
 mvn clean install
 
 docker-compose up -d
@@ -18,7 +20,7 @@ curl --location --request POST 'http://localhost:8080/api/getconvert' \
 --header 'Content-Type: application/json' \
 --data-raw '{"currencyType":"EUR,TRY", "rate":4 ,"date":"2020-10-15"}'
 
-
+```
 
 ## Getting Your Development Environment Setup
 ### Recommended Versions
