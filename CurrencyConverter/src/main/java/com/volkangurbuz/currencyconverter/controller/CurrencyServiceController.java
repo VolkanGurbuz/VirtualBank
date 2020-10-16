@@ -3,13 +3,9 @@ package com.volkangurbuz.currencyconverter.controller;
 import com.volkangurbuz.currencyconverter.domain.Currency;
 import com.volkangurbuz.currencyconverter.exceptions.NotFoundException;
 import com.volkangurbuz.currencyconverter.services.CurrencyConvertService;
-import lombok.SneakyThrows;
 import org.json.JSONException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -50,7 +46,6 @@ public class CurrencyServiceController {
     Currency convertedCurrency = null;
     if (currency.getCurrencyType() != null && currency.getRate() != null) {
       String rate = currency.getRate() + "";
-      logger.info("currSecond " + currency.toString());
       String currencyType = currency.getCurrencyType().split(",")[0];
       String toCurrencyType = currency.getCurrencyType().split(",")[1];
 
