@@ -24,17 +24,16 @@ public class CurrencyServiceImpl implements CurrencyConvertService {
 
     if (result == null) {
       throw new NotFoundException("please insert the post body");
-
-    } else {
-      String rates = Util.getJsonValue("rates", result);
-      String date = Util.getJsonValue("date", result);
-      String currentRate = Util.getJsonValue(toConvertCurrency, rates);
-      double moneyRate = Util.calculaterRate(rate, currentRate);
-      logger.info("rate:" + moneyRate + " as " + currentRate + " rate " + rate);
-      currencyConverted.setDate(date);
-      currencyConverted.setCurrencyType(toConvertCurrency);
-      currencyConverted.setRate(moneyRate + "");
     }
+    String rates = Util.getJsonValue("rates", result);
+    String date = Util.getJsonValue("date", result);
+    String currentRate = Util.getJsonValue(toConvertCurrency, rates);
+    double moneyRate = Util.calculaterRate(rate, currentRate);
+    logger.info("rate:" + moneyRate + " as " + currentRate + " rate " + rate);
+    currencyConverted.setDate(date);
+    currencyConverted.setCurrencyType(toConvertCurrency);
+    currencyConverted.setRate(moneyRate + "");
+
     return currencyConverted;
   }
 }
