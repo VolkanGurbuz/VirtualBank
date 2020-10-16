@@ -11,6 +11,15 @@ mvn clean install
 docker-compose up -d
 
 
+currency converter service restfull
+
+curl --location --request POST 'http://localhost:8080/api/getconvert' \
+--header 'Accept: application/json' \
+--header 'Content-Type: application/json' \
+--data-raw '{"currencyType":"EUR,TRY", "rate":4 ,"date":"2020-10-15"}'
+
+
+
 ## Getting Your Development Environment Setup
 ### Recommended Versions
  | Recommended | Reference | Notes |
