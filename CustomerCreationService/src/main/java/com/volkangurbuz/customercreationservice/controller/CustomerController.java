@@ -21,7 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class CustomerController {
 
   private final CustomerService customerService;
-  Logger logger = LoggerFactory.getLogger(CustomerServiceImpl.class);
+  Logger logger = LoggerFactory.getLogger(CustomerController.class);
 
   public CustomerController(CustomerService customerService) {
     this.customerService = customerService;
