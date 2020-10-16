@@ -1,6 +1,8 @@
 # VirtualBank
+[![CircleCI](https://circleci.com/gh/VolkanGurbuz/virtualbank.svg?style=svg)](https://circleci.com/gh/VolkanGurbuz/virtualbank)
 
-# Spring Framework 5: 
+
+## Spring Framework 5: 
 
 The application is a simple Spring Boot 2 / Spring Framework 5 web application. It is used to build  on VirtualBankSystem.
 
