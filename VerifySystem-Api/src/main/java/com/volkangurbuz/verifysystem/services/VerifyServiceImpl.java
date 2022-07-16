@@ -15,11 +15,8 @@ public class VerifyServiceImpl implements VerifyService {
   @Override
   public Result verifyPerson(Person person) {
     try {
-
       Util util = new Util();
-      boolean isValid = util.isValid(util.sendMessage(person));
-
-      if (isValid) {
+      if (util.isValid(util.sendMessage(person))) {
         return new SuccessResult(true, "The person is valid.");
       } else {
         return new ErrorResult(false, "The person is not valid.");
